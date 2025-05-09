@@ -15,17 +15,18 @@ dotenv.config();
 /** Middlewares */
 app.use(express.json());
 const corsConfig = {
+    origin: 'https://echo-pod.vercel.app',
     credentials: true,
-    origin: true,
+    // origin: true,
 };
 app.use(cors(corsConfig));
-app.use(morgan('tiny'));
-app.disable('x-powered-by');
-app.use(function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(morgan('tiny'));
+// app.disable('x-powered-by');
+// app.use(function (request, response, next) {
+//     response.header("Access-Control-Allow-Origin", "*");
+//     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 
 const port = process.env.PORT || 8700;
 
